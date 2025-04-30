@@ -1,4 +1,4 @@
-169. Majority Element
+#169. Majority Element
 def majorityElement(self, nums: List[int]) -> int:
         nums.sort()
         return nums[len(nums) // 2]
