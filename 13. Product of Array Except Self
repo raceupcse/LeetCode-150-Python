@@ -1,0 +1,13 @@
+238. Product of Array Except Self
+def productExceptSelf(self, nums: List[int]) -> List[int]:
+        n = len(nums)
+        res = [1]*n
+        cur = 1
+        for i in range(n):
+            res[i] *=cur
+            cur *=nums[i]
+        cur = 1
+        for i in range(n-1,-1,-1):
+            res[i] *=cur
+            cur *=nums[i]
+        return res
