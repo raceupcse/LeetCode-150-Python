@@ -1,0 +1,19 @@
+221. Maximal Square
+def maximalSquare(self, matrix: List[List[str]]) -> int:
+        if(matrix == None or len(matrix)==0 or len(matrix[0])==0):
+            return 0
+        n = len(matrix)
+        m = len(matrix[0])
+        dp = [0]*(m+1)
+        maxs = 0
+        prev = 0
+        for i in range(n):
+            for j in range(1,m+1):
+                temp = dp[j]
+                if(matrix[i][j-1] =='1'):
+                    dp[j] = min(dp[j], min(dp[j - 1], prev)) + 1
+                    maxs = max(maxs,dp[j])
+                else:
+                    dp[j]= 0
+            prev = temp
+        return maxs *maxs
